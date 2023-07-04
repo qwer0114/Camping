@@ -1,0 +1,98 @@
+.navBar {
+  width: 100%;
+  background-color: black;
+  color: white;
+  height: 3rem;
+  margin-bottom: 10px;
+}
+.main_image {
+  background: url("./img/캠핑.png") no-repeat center;
+  background-size: cover;
+  width: 80%;
+  height: 600px;
+  margin: 0 auto;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav_phrase {
+  margin-left: auto;
+  padding-right: 50px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.logo {
+  width: 6%;
+}
+
+.main_image_text {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.seoul_card {
+  background: url("./img/서울.png") no-repeat center;
+  width: 30%;
+  height: 300px;
+}
+
+.sideBar {
+  display: flex;
+  width: 35%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.sideBar_item {
+  width: 100%;
+  font-size: 15px;
+  color: black;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.sideBar_item:hover {
+  color: black;
+}
+.lists_container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.list_item {
+  padding: 10px;
+}
+
+.camping-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.camping_name {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.camping_image {
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.camping_address {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.image_container:first-child {
+  display: none;
+}
