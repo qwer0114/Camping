@@ -1,3 +1,5 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 .navBar {
   width: 100%;
   background-color: black;
@@ -93,6 +95,21 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-.image_container:first-child {
-  display: none;
+.detail {
+  margin: 0 auto;
+  width: 60%;
+  height: 100%;
+}
+
+.faclNm {
+  font-size: 30px;
+  font-weight: bold;
+}
+.slick-prev {
+  z-index: 9999;
+  left: 25px;
+}
+
+.slick-next {
+  right: 25px;
 }

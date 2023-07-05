@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
+import ImageCarousel from "./ImageCarousel";
 
-function CampingDetail({ detail }) {
+function CampingDetail() {
   const { state } = useLocation();
   const [images, setImages] = useState([]);
   console.log(state);
@@ -12,6 +13,7 @@ function CampingDetail({ detail }) {
     );
     const json = await imageLists.json();
     setImages(json.response.body.items.item);
+    // console.log(json.response.body.items.item);
     console.log(json.response.body.items.item);
   };
 
@@ -20,14 +22,13 @@ function CampingDetail({ detail }) {
   }, []);
 
   return (
-    <div>
-      <h2>{state.facltNm}</h2>
+    <div className="detail">
+      <div className="faclNm">{state.facltNm}</div>
       <div className="camping_address">{state.addr1}</div>
-      <div className="image_container">
-        <img src={`${images[0].imageUrl}`}></img>
-        <img src={`${images[1].imageUrl}`}></img>
-        <img src={`${images[2].imageUrl}`}></img>
-      </div>
+
+      {images.length !== 0 ? (
+        <ImageCarousel images={images}></ImageCarousel>
+      ) : null}
     </div>
   );
 }

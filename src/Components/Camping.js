@@ -24,6 +24,7 @@ function Camping() {
       `${process.env.REACT_APP_API_ADDRESS}&serviceKey=${process.env.REACT_APP_API_KEY}&_type=json&mapX=${selectPlace.경도}&mapY=${selectPlace.위도}&radius=20000`
     );
     const json = await list.json();
+
     setCampingList(json.response.body.items.item);
   };
   useEffect(() => {
