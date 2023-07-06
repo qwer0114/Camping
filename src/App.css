@@ -113,3 +113,10 @@
 .slick-next {
   right: 25px;
 }
+
+.facility_icon {
+  display: flex;
+}
+
+.detail_facility {
+}

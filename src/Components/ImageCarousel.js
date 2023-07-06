@@ -3,7 +3,6 @@ import Slider from "react-slick";
 function ImageCarousel({ images }) {
   const settings = {
     arrows: true,
-    dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -21,7 +20,7 @@ function ImageCarousel({ images }) {
                 className="carousel_img"
                 style={{
                   width: "100%",
-                  height: "500px",
+                  height: "550px",
                   objectFit: "cover",
                   borderRadius: "10px",
                 }}
