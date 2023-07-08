@@ -12,13 +12,7 @@ function NavBar({ content }) {
           navigate("/");
         }}
       ></img>
-      <div
-        onClick={() => {
-          navigate("/camping");
-        }}
-      >
-        {content}
-      </div>
+
       <div className="nav_phrase">당신을 위한 캠핑</div>
     </div>
   );

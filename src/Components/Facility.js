@@ -1,11 +1,11 @@
 function Facility({ facilityName, facilityObjectName }) {
   return (
-    <div>
+    <div className="facility_container">
       {facilityName.map((facility, i) => {
         return (
-          <div key={i} className="facility_icon">
-            {facilityObjectName[facility]}
-            <div>{facility}</div>
+          <div key={i} className="facility_icons">
+            <div className="facility_icon">{facilityObjectName[facility]}</div>
+            <div className="facility_name">{facility}</div>
           </div>
         );
       })}

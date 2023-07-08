@@ -12,14 +12,14 @@ function CampingList({ campingList }) {
   console.log(list);
   return (
     <div className="lists_container">
-      {list.map((list) => {
+      {list.map((list, i) => {
         return (
-          <div className="list_item">
+          <div className="list_item" key={i}>
             <img src={`${list.firstImageUrl}`} className="camping_image"></img>
             <div
               className="camping_name"
               onClick={() => {
-                navigate(`/camping/${list.contentId}`, { state: list });
+                navigate(`/campingDetail/${list.contentId}`, { state: list });
               }}
             >
               {list.facltNm}

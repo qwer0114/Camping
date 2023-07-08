@@ -3,6 +3,12 @@ import React, { useEffect } from "react";
 const { kakao } = window;
 
 function Map({ lat, lng }) {
+  const markerPosition = new kakao.maps.LatLng(Number(lat), Number(lng));
+
+  const marker = new kakao.maps.Marker({
+    position: markerPosition,
+    clickable: true,
+  });
   useEffect(() => {
     const container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
     const options = {
@@ -12,9 +18,15 @@ function Map({ lat, lng }) {
     };
 
     const map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+    marker.setMap(map);
   }, []);
 
-  return <div id="map" style={{ width: "800px", height: "400px" }}></div>;
+  return (
+    <div
+      id="map"
+      style={{ width: "100%", height: "500px", marginBottom: "100px" }}
+    ></div>
+  );
 }
 
 export default Map;

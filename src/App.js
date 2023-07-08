@@ -2,27 +2,35 @@ import "./App.css";
 import NavBar from "./Components/NavBar";
 import data from "./data";
 import { useNavigate } from "react-router-dom";
+import CampingCarousel from "./Components/CampingCarousel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMountainSun } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const navigate = useNavigate();
   return (
-    <div className="App">
+    <>
       <NavBar content={"지역별"}></NavBar>
-      <div className="main_image">
-        <div className="main_image_text">열심히 일한자 떠나라!</div>
-      </div>
-      <div className="cards">
-        <div className="seoul_card">
+      <div className="App">
+        <div className="main_image">
+          <div className="main_image_text">당신을 위한 캠핑</div>
           <div
+            className="main_image_sub_text"
             onClick={() => {
-              navigate("/camping");
+              navigate("/camping/경기도");
             }}
           >
-            경기도 캠핑장
+            지역별로 찾아보세요!
           </div>
         </div>
+
+        <div className="camping_carousel">
+          <CampingCarousel keyword={"계곡"}></CampingCarousel>
+          <CampingCarousel keyword={"바다"}></CampingCarousel>
+          <CampingCarousel keyword={"산"}></CampingCarousel>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

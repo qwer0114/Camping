@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
-
+import { useQuery, useQueryClient } from "react-query";
 import CampingLists from "./CampingLists";
 import NavBar from "./NavBar";
 import data from "../data";
-
+import { async } from "q";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Loading from "./Loading";
 function Camping() {
   const [mainPlace, setMainPlace] = useState([
     "경기도",
+    "강원도",
     "경상남도",
     "경상북도",
     "전라남도",
@@ -15,21 +19,37 @@ function Camping() {
     "충청북도",
     "제주도",
   ]);
+  const navigate = useNavigate();
+  let { id } = useParams();
 
-  const [selectPlace, setSelectPlace] = useState(data.경기도);
-  const [campingList, setCampingList] = useState([]);
-
+  const queryClient = useQueryClient();
   const getList = async () => {
     const list = await fetch(
-      `${process.env.REACT_APP_API_ADDRESS}&serviceKey=${process.env.REACT_APP_API_KEY}&_type=json&mapX=${selectPlace.경도}&mapY=${selectPlace.위도}&radius=20000`
+      `/B551011/GoCamping/locationBasedList?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=30&pageNo=1&MobileOS=ETC&MobileApp=Hello&mapX=${data[id].경도}&mapY=${data[id].위도}&radius=20000&_type=json`
     );
     const json = await list.json();
-
-    setCampingList(json.response.body.items.item);
+    return json;
   };
-  useEffect(() => {
-    getList();
-  }, [selectPlace]);
+
+  const result = useQuery(["getList", id], getList, {
+    onSuccess: (data) => {},
+    onError: (e) => {
+      console.log(e.message);
+    },
+    staleTime: 1000 * 60 * 60 * 24,
+    cacheTime: 1000 * 60 * 60 * 24,
+    keepPreviousData: true,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+  });
+
+  const preFetchList = async (id) => {
+    await queryClient.prefetchQuery({
+      queryKey: ["getList", id],
+      queryFn: getList,
+    });
+  };
 
   return (
     <div className="camping-page">
@@ -40,16 +60,31 @@ function Camping() {
             <div
               key={i}
               className="sideBar_item"
-              onClick={() => {
-                setSelectPlace(data[place]);
+              onClick={(e) => {
+                navigate(`/camping/${e.target.textContent}`);
+              }}
+              onMouseEnter={() => {
+                preFetchList(id);
               }}
             >
-              {place}
+              {id === place ? (
+                <span style={{ color: "black", fontWeight: "700" }}>
+                  {place}
+                </span>
+              ) : (
+                <span>{place}</span>
+              )}
             </div>
           );
         })}
       </div>
-      <CampingLists campingList={campingList}></CampingLists>
+      {result.isLoading === true ? (
+        <Loading></Loading>
+      ) : (
+        <CampingLists
+          campingList={result.data.response.body.items.item}
+        ></CampingLists>
+      )}
     </div>
   );
 }
