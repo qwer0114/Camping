@@ -7,25 +7,32 @@ function CampingList({ campingList }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setList(campingList.filter((list) => list.firstImageUrl !== ""));
+    setList(campingList);
   }, [campingList]);
-  console.log(list);
+
   return (
     <div className="lists_container">
-      {list.map((list, i) => {
+      {campingList.map((list, i) => {
+        console.log(list.firstImageUrl);
         return (
           <div className="list_item" key={i}>
-            <img src={`${list.firstImageUrl}`} className="camping_image"></img>
             <div
-              className="camping_name"
+              className="camping_image"
+              style={{
+                background: `url(${list.firstImageUrl}) no-repeat center/cover `,
+              }}
               onClick={() => {
-                navigate(`/campingDetail/${list.contentId}`, { state: list });
+                navigate(`/campingDetail/${list.contentId}`, {
+                  state: list,
+                });
               }}
             >
-              {list.facltNm}
+              <div className="camping_text">
+                <div className="camping_name">{list.facltNm}</div>
+                <div className="camping_address">{list.addr1}</div>
+                <div className="camping_address">{list.operPdCl}</div>
+              </div>
             </div>
-            <div className="camping_address">{list.addr1}</div>
-            <div className="camping_address">{list.operPdCl}</div>
           </div>
         );
       })}

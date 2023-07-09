@@ -1,4 +1,3 @@
-import { faL } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
 import Slider from "react-slick/lib/slider";
 

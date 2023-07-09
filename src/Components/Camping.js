@@ -36,6 +36,12 @@ function Camping() {
     onError: (e) => {
       console.log(e.message);
     },
+    select: (data) => {
+      const filterData = data.response.body.items.item.filter(
+        (list) => list.firstImageUrl !== ""
+      );
+      return filterData;
+    },
     staleTime: 1000 * 60 * 60 * 24,
     cacheTime: 1000 * 60 * 60 * 24,
     keepPreviousData: true,
@@ -61,7 +67,7 @@ function Camping() {
               key={i}
               className="sideBar_item"
               onClick={(e) => {
-                navigate(`/camping/${e.target.textContent}`);
+                navigate(`/camping/place/지역/${e.target.textContent}`);
               }}
               onMouseEnter={() => {
                 preFetchList(id);
@@ -78,13 +84,9 @@ function Camping() {
           );
         })}
       </div>
-      {result.isLoading === true ? (
-        <Loading></Loading>
-      ) : (
-        <CampingLists
-          campingList={result.data.response.body.items.item}
-        ></CampingLists>
-      )}
+      {result.isSuccess === true ? (
+        <CampingLists campingList={result.data}></CampingLists>
+      ) : null}
     </div>
   );
 }

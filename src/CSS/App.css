@@ -1,0 +1,97 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.App {
+  width: 60%;
+  margin: 0 auto;
+  height: 1200px;
+}
+
+.main_image {
+  background: url("../img/캠핑.png") no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ad-container {
+  border-radius: 10px;
+  background-color: black;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.ad_text {
+  font-size: 30px;
+  color: white;
+  font-weight: 700;
+  width: 15%;
+}
+
+.ad_image {
+  width: 30%;
+  object-fit: cover;
+  margin-bottom: 30px;
+}
+
+.main_image_text {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  padding-left: 50px;
+}
+
+.main_image_sub_text {
+  color: white;
+  font-size: 25px;
+  margin-left: 50px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: black;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.main_image_sub_text:hover {
+  color: black;
+  background-color: white;
+}
+
+.main_icons {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.main_icon {
+  width: 30%;
+}
+
+.site_logo {
+  width: 6%;
+}
+
+.sideBar {
+  display: flex;
+  width: 35%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.sideBar_item {
+  width: 100%;
+  font-size: 15px;
+  color: black;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.sideBar_item:hover {
+  color: black;
+}

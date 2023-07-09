@@ -1,0 +1,54 @@
+.lists_container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.list_item {
+  padding: 10px;
+  width: 100%;
+}
+
+.camping-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.camping_name {
+  font-weight: bold;
+  cursor: pointer;
+  width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: white;
+  font-size: 35px;
+  padding-left: 10px;
+}
+.camping_text {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.camping_image {
+  width: 60%;
+  height: 350px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.camping_address {
+  width: 50%;
+  font-size: 12px;
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 10px;
+}

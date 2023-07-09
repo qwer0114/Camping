@@ -2,51 +2,13 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import Carousel from "./Carousel";
 import Facility from "./Facility";
-import {
-  faBolt,
-  faWifi,
-  faTree,
-  faWorm,
-  faStore,
-  faBed,
-  faTv,
-  faTemperatureArrowDown,
-  faSnowflake,
-  faNetworkWired,
-  faTemperatureArrowUp,
-  faDumbbell,
-  faUtensils,
-  faToilet,
-  faPersonSwimming,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import Map from "./Map";
 import NavBar from "./NavBar";
 function CampingDetail() {
   const { state } = useLocation();
   const [images, setImages] = useState([]);
-  const [sbrsCl, setsbrsCl] = useState([]);
-  const [glampInnerFclty, setglampInnerFclty] = useState([]);
-  const [caravInnerFclty, setcaravInnerFclty] = useState([]);
-
-  const facility = {
-    전기: <FontAwesomeIcon icon={faBolt} size="2x" />,
-    무선인터넷: <FontAwesomeIcon icon={faWifi} size="2x" />,
-    장작판매: <FontAwesomeIcon icon={faTree} size="2x" />,
-    온수: <FontAwesomeIcon icon={faWorm} size="2x" />,
-    편의점: <FontAwesomeIcon icon={faStore} size="2x" />,
-    운동시설: <FontAwesomeIcon icon={faDumbbell} size="2x" />,
-    침대: <FontAwesomeIcon icon={faBed} size="2x" />,
-    TV: <FontAwesomeIcon icon={faTv} size="2x" />,
-    에어컨: <FontAwesomeIcon icon={faTemperatureArrowDown} size="2x" />,
-    냉장고: <FontAwesomeIcon icon={faSnowflake} size="2x" />,
-    유무선인터넷: <FontAwesomeIcon icon={faNetworkWired} size="2x" />,
-    난방기구: <FontAwesomeIcon icon={faTemperatureArrowUp} size="2x" />,
-    운동시설: <FontAwesomeIcon icon={faDumbbell} size="2x" />,
-    취사도구: <FontAwesomeIcon icon={faUtensils} size="2x" />,
-    내부화장실: <FontAwesomeIcon icon={faToilet} size="2x" />,
-    물놀이장: <FontAwesomeIcon icon={faPersonSwimming} size="2x" />,
-  };
+  const [facilities, setFacilities] = useState([]);
 
   console.log(state);
 
@@ -60,9 +22,16 @@ function CampingDetail() {
 
   useEffect(() => {
     getList();
-    setsbrsCl(state.sbrsCl.split(","));
-    setglampInnerFclty(state.glampInnerFclty.split(","));
-    setcaravInnerFclty(state.caravInnerFclty.split(","));
+    let arr = [
+      ...state.sbrsCl.split(","),
+      ...state.glampInnerFclty.split(","),
+      ...state.caravInnerFclty.split(","),
+    ];
+    let filter = arr.filter((arr) => {
+      return arr !== "";
+    });
+    console.log(filter);
+    setFacilities([...new Set(filter)]);
   }, []);
 
   return (
@@ -92,20 +61,7 @@ function CampingDetail() {
           <div className="detail_facility">
             <div className="facility_tag">숙소 편의 시설</div>
             <div style={{ display: "flex" }}>
-              <Facility
-                facilityName={sbrsCl}
-                facilityObjectName={facility}
-              ></Facility>
-
-              <Facility
-                facilityName={glampInnerFclty}
-                facilityObjectName={facility}
-              ></Facility>
-
-              <Facility
-                facilityName={caravInnerFclty}
-                facilityObjectName={facility}
-              ></Facility>
+              <Facility facilities={facilities}></Facility>
             </div>
           </div>
           <div>{state.tel !== " " ? `Tel: ${state.tel}` : null}</div>
@@ -117,7 +73,7 @@ function CampingDetail() {
               );
             }}
           >
-            길찾기
+            길찾기: {state.addr1}
           </div>
           <div>
             <span

@@ -5,12 +5,18 @@
   font-weight: 500;
   font-style: normal;
 }
+@import "./CSS/App.css";
+@import "./CSS/navBar.css";
+@import "./CSS/facility.css";
+@import "./CSS/detail.css";
+@import "./CSS/campingList.css";
 body {
   margin: 0;
   font-family: "SUITE-Regular";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 2;
+  padding-top: 200px;
 }
 
 code {
