@@ -2,15 +2,29 @@ import NavBar from "./NavBar";
 import { useParams } from "react-router-dom";
 import { useQuery, useQueryClient } from "react-query";
 import CampingLists from "./CampingLists";
-import Loading from "./Loading";
+import MoonLoader from "react-spinners/ClipLoader";
+import { useEffect, useState } from "react";
+import DetailFilter from "./DetailFilter";
+
+const filterMenu = [
+  "전국",
+  "경기/인천",
+  "충청",
+  "경상/부산",
+  "전라",
+  "강원",
+  "제주",
+];
+
 function TemaCamping() {
   const { id } = useParams();
-
+  const [resultData, setResultData] = useState([]);
   const queryClient = useQueryClient();
+  const [filterDN, setFilterDN] = useState(["전국"]);
 
   const getList = async () => {
     const list = await fetch(
-      `/B551011/GoCamping/searchList?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=20&pageNo=1&MobileOS=ETC&MobileApp=Hello&keyword=${id}&_type=json`
+      `/B551011/GoCamping/searchList?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=30&pageNo=1&MobileOS=ETC&MobileApp=Hello&keyword=${id}&_type=json`
     );
     const json = await list.json();
     return json;
@@ -24,9 +38,20 @@ function TemaCamping() {
       console.log(e.message);
     },
     select: (data) => {
-      const filterData = data.response.body.items.item.filter(
-        (list) => list.firstImageUrl !== ""
-      );
+      let filterData;
+      if (filterDN[0] === "전국") {
+        filterData = data.response.body.items.item.filter(
+          (list) => list.firstImageUrl !== ""
+        );
+      } else {
+        filterData = data.response.body.items.item.filter(
+          (list) =>
+            list.firstImageUrl !== "" &&
+            (list.doNm.includes(filterDN[0]) ||
+              list.doNm.includes(filterDN[filterDN.length - 1]))
+        );
+      }
+
       return filterData;
     },
 
@@ -35,15 +60,21 @@ function TemaCamping() {
     keepPreviousData: true,
     refetchOnWindowFocus: false,
   });
+  useEffect(() => {
+    console.log(filterDN);
+  }, [filterDN]);
   return (
-    <div className="camping-page">
+    <>
       <NavBar></NavBar>
-      {result.isLoading === true ? (
-        <Loading></Loading>
-      ) : (
-        <CampingLists campingList={result.data}></CampingLists>
-      )}
-    </div>
+      <div className="camping-page">
+        <DetailFilter></DetailFilter>
+        {result.isLoading === true ? (
+          <MoonLoader color="#36d7b7" />
+        ) : (
+          <CampingLists campingList={result.data}></CampingLists>
+        )}
+      </div>
+    </>
   );
 }
 

@@ -6,14 +6,11 @@ function CampingList({ campingList }) {
   const [list, setList] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setList(campingList);
-  }, [campingList]);
+  useEffect(() => {}, [campingList]);
 
   return (
     <div className="lists_container">
       {campingList.map((list, i) => {
-        console.log(list.firstImageUrl);
         return (
           <div className="list_item" key={i}>
             <div

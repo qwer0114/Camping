@@ -5,6 +5,7 @@ import Facility from "./Facility";
 
 import Map from "./Map";
 import NavBar from "./NavBar";
+
 function CampingDetail() {
   const { state } = useLocation();
   const [images, setImages] = useState([]);
@@ -78,11 +79,11 @@ function CampingDetail() {
           <div>
             <span
               className="detail_link"
-              onClick={() => {
-                window.open(`${state.homepage}`);
+              onClick={(e) => {
+                window.open(state.homepage);
               }}
             >
-              {state.homepage !== "" ? `홈페이지: ${state.homepage}` : null}
+              {state.homepage !== "" ? `${state.homepage}` : null}
             </span>
           </div>
         </div>

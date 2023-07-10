@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useQuery, useQueryClient } from "react-query";
 import CampingLists from "./CampingLists";
 import NavBar from "./NavBar";
-import data from "../data";
+import { data } from "../data";
 import { async } from "q";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import Loading from "./Loading";
+
 function Camping() {
   const [mainPlace, setMainPlace] = useState([
     "경기도",
