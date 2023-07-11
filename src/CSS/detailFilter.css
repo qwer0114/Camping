@@ -1,7 +1,7 @@
 .detail_filter {
   width: 15%;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  height: 600px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   padding-left: 10px;
@@ -10,7 +10,7 @@
 }
 
 .detail_filter_buttons {
-  width: 90%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -29,6 +29,10 @@
   background-color: #f2074c;
   color: white;
   border: 1px solid white;
+}
+
+.apply:hover {
+  background-color: #b30639;
 }
 
 .clear {

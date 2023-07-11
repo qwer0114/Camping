@@ -1,7 +1,7 @@
 import { facility } from "../data";
 function Facility({ facilities }) {
   console.log(facilities);
-  facilities.filter(() => {});
+
   return (
     <div className="facility_container">
       {facilities.map((facilityItem, i) => {

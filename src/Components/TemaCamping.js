@@ -6,7 +6,7 @@ import MoonLoader from "react-spinners/ClipLoader";
 import { useEffect, useState } from "react";
 import DetailFilter from "./DetailFilter";
 
-const filterMenu = [
+const navPlace = [
   "전국",
   "경기/인천",
   "충청",
@@ -18,7 +18,7 @@ const filterMenu = [
 
 function TemaCamping() {
   const { id } = useParams();
-  const [resultData, setResultData] = useState([]);
+  const [checkValue, setCheckValue] = useState([]);
   const queryClient = useQueryClient();
   const [filterDN, setFilterDN] = useState(["전국"]);
 
@@ -65,13 +65,19 @@ function TemaCamping() {
   }, [filterDN]);
   return (
     <>
-      <NavBar></NavBar>
+      <NavBar id={id} navPlace={navPlace}></NavBar>
       <div className="camping-page">
-        <DetailFilter></DetailFilter>
+        <DetailFilter
+          checkValue={checkValue}
+          setCheckValue={setCheckValue}
+        ></DetailFilter>
         {result.isLoading === true ? (
           <MoonLoader color="#36d7b7" />
         ) : (
-          <CampingLists campingList={result.data}></CampingLists>
+          <CampingLists
+            campingList={result.data}
+            checkValue={checkValue}
+          ></CampingLists>
         )}
       </div>
     </>

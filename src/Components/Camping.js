@@ -6,6 +6,8 @@ import { data } from "../data";
 import { async } from "q";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import DetailFilter from "./DetailFilter";
+import MoonLoader from "react-spinners/ClipLoader";
 
 function Camping() {
   const [mainPlace, setMainPlace] = useState([
@@ -19,6 +21,7 @@ function Camping() {
     "충청북도",
     "제주도",
   ]);
+  const [checkValue, setCheckValue] = useState([]);
   const navigate = useNavigate();
   let { id } = useParams();
 
@@ -84,9 +87,18 @@ function Camping() {
           );
         })}
       </div>
-      {result.isSuccess === true ? (
-        <CampingLists campingList={result.data}></CampingLists>
-      ) : null}
+      <DetailFilter
+        checkValue={checkValue}
+        setCheckValue={setCheckValue}
+      ></DetailFilter>
+      {result.isLoading === true ? (
+        <MoonLoader color="#36d7b7" />
+      ) : (
+        <CampingLists
+          campingList={result.data}
+          checkValue={checkValue}
+        ></CampingLists>
+      )}
     </div>
   );
 }
