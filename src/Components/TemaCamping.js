@@ -5,6 +5,7 @@ import CampingLists from "./CampingLists";
 import MoonLoader from "react-spinners/ClipLoader";
 import { useEffect, useState } from "react";
 import DetailFilter from "./DetailFilter";
+import { useAPI } from "../CustomHook/useAPI";
 
 const navPlace = [
   "전국",
@@ -30,39 +31,8 @@ function TemaCamping() {
     return json;
   };
 
-  const result = useQuery(["getTemaList", id], getList, {
-    onSuccess: (data) => {
-      console.log(data);
-    },
-    onError: (e) => {
-      console.log(e.message);
-    },
-    select: (data) => {
-      let filterData;
-      if (filterDN[0] === "전국") {
-        filterData = data.response.body.items.item.filter(
-          (list) => list.firstImageUrl !== ""
-        );
-      } else {
-        filterData = data.response.body.items.item.filter(
-          (list) =>
-            list.firstImageUrl !== "" &&
-            (list.doNm.includes(filterDN[0]) ||
-              list.doNm.includes(filterDN[filterDN.length - 1]))
-        );
-      }
+  const result = useAPI(["getLoationList", id], getList);
 
-      return filterData;
-    },
-
-    staleTime: 1000 * 60 * 60 * 24,
-    cacheTime: 1000 * 60 * 60 * 24,
-    keepPreviousData: true,
-    refetchOnWindowFocus: false,
-  });
-  useEffect(() => {
-    console.log(filterDN);
-  }, [filterDN]);
   return (
     <>
       <NavBar id={id} navPlace={navPlace}></NavBar>

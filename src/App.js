@@ -1,6 +1,7 @@
 import NavBar from "./Components/NavBar";
 import data from "./data";
 import { useNavigate } from "react-router-dom";
+import MyLocation from "./Components/MyLocation";
 
 import Logo from "./Components/Logo";
 
@@ -60,6 +61,7 @@ function App() {
             navigatePath={"place/지역/경기도"}
           ></Logo>
         </div>
+        <MyLocation></MyLocation>
         <div
           className="ad-container"
           onClick={() => {

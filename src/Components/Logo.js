@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 function Logo({ path, title, onClickEvent, navigatePath }) {
-  console.log(onClickEvent);
   return (
     <div
       style={{

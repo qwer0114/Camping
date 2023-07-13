@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import DetailFilter from "./DetailFilter";
 import MoonLoader from "react-spinners/ClipLoader";
+import { useAPI } from "../CustomHook/useAPI";
 
 function Camping() {
   const [mainPlace, setMainPlace] = useState([
@@ -34,31 +35,14 @@ function Camping() {
     return json;
   };
 
-  const result = useQuery(["getList", id], getList, {
-    onSuccess: (data) => {},
-    onError: (e) => {
-      console.log(e.message);
-    },
-    select: (data) => {
-      const filterData = data.response.body.items.item.filter(
-        (list) => list.firstImageUrl !== ""
-      );
-      return filterData;
-    },
-    staleTime: 1000 * 60 * 60 * 24,
-    cacheTime: 1000 * 60 * 60 * 24,
-    keepPreviousData: true,
-    refetchOnWindowFocus: false,
-    refetchOnMount: false,
-    refetchOnReconnect: false,
-  });
+  const result = useAPI(["getLoationList", id], getList);
 
-  const preFetchList = async (id) => {
-    await queryClient.prefetchQuery({
-      queryKey: ["getList", id],
-      queryFn: getList,
-    });
-  };
+  // const preFetchList = async (id) => {
+  //   await queryClient.prefetchQuery({
+  //     queryKey: ["getList", id],
+  //     queryFn: getList,
+  //   });
+  // };
 
   return (
     <div className="camping-page">
@@ -73,7 +57,7 @@ function Camping() {
                 navigate(`/camping/place/지역/${e.target.textContent}`);
               }}
               onMouseEnter={() => {
-                preFetchList(id);
+                // preFetchList(id);
               }}
             >
               {id === place ? (
