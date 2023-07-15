@@ -34,23 +34,25 @@ function TemaCamping() {
   const result = useAPI(["getLoationList", id], getList);
 
   return (
-    <>
-      <NavBar id={id} navPlace={navPlace}></NavBar>
-      <div className="camping-page">
-        <DetailFilter
-          checkValue={checkValue}
-          setCheckValue={setCheckValue}
-        ></DetailFilter>
-        {result.isLoading === true ? (
-          <MoonLoader color="#36d7b7" />
-        ) : (
+    <div className="camping-page">
+      <NavBar></NavBar>
+      {result.isLoading === true ? (
+        <MoonLoader color="#36d7b7"></MoonLoader>
+      ) : (
+        <>
+          <div className="fiter_bar">
+            <DetailFilter
+              checkValue={checkValue}
+              setCheckValue={setCheckValue}
+            ></DetailFilter>
+          </div>
           <CampingLists
             campingList={result.data}
             checkValue={checkValue}
           ></CampingLists>
-        )}
-      </div>
-    </>
+        </>
+      )}
+    </div>
   );
 }
 

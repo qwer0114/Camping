@@ -59,5 +59,15 @@ const facility = {
   운동장: "운동장",
   내부샤워실: "내부샤워실",
 };
-
-export { data, facility };
+const places = [
+  "경기도",
+  "강원도",
+  "경상남도",
+  "경상북도",
+  "전라남도",
+  "전라북도",
+  "충청남도",
+  "충청북도",
+  "제주도",
+];
+export { data, facility, places };

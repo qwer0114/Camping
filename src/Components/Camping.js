@@ -9,19 +9,8 @@ import { useParams } from "react-router-dom";
 import DetailFilter from "./DetailFilter";
 import MoonLoader from "react-spinners/ClipLoader";
 import { useAPI } from "../CustomHook/useAPI";
-
+import PlaceFilter from "./PlaceFilter";
 function Camping() {
-  const [mainPlace, setMainPlace] = useState([
-    "경기도",
-    "강원도",
-    "경상남도",
-    "경상북도",
-    "전라남도",
-    "전라북도",
-    "충청남도",
-    "충청북도",
-    "제주도",
-  ]);
   const [checkValue, setCheckValue] = useState([]);
   const navigate = useNavigate();
   let { id } = useParams();
@@ -47,41 +36,22 @@ function Camping() {
   return (
     <div className="camping-page">
       <NavBar></NavBar>
-      <div className="sideBar">
-        {mainPlace.map((place, i) => {
-          return (
-            <div
-              key={i}
-              className="sideBar_item"
-              onClick={(e) => {
-                navigate(`/camping/place/지역/${e.target.textContent}`);
-              }}
-              onMouseEnter={() => {
-                // preFetchList(id);
-              }}
-            >
-              {id === place ? (
-                <span style={{ color: "black", fontWeight: "700" }}>
-                  {place}
-                </span>
-              ) : (
-                <span>{place}</span>
-              )}
-            </div>
-          );
-        })}
-      </div>
-      <DetailFilter
-        checkValue={checkValue}
-        setCheckValue={setCheckValue}
-      ></DetailFilter>
       {result.isLoading === true ? (
-        <MoonLoader color="#36d7b7" />
+        <MoonLoader color="#36d7b7"></MoonLoader>
       ) : (
-        <CampingLists
-          campingList={result.data}
-          checkValue={checkValue}
-        ></CampingLists>
+        <>
+          <div className="fiter_bar">
+            <PlaceFilter id={id}></PlaceFilter>
+            <DetailFilter
+              checkValue={checkValue}
+              setCheckValue={setCheckValue}
+            ></DetailFilter>
+          </div>
+          <CampingLists
+            campingList={result.data}
+            checkValue={checkValue}
+          ></CampingLists>
+        </>
       )}
     </div>
   );

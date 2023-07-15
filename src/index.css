@@ -10,7 +10,6 @@
 @import "./CSS/facility.css";
 @import "./CSS/detail.css";
 @import "./CSS/campingList.css";
-@import "./CSS/campingFilter.css";
 @import "./CSS/detailFilter.css";
 body {
   margin: 0;

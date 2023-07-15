@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.fiter_bar {
+  width: 15%;
+}
+
 .list_item {
   padding: 10px;
   width: 100%;
