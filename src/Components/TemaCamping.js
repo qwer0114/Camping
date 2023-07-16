@@ -7,21 +7,10 @@ import { useEffect, useState } from "react";
 import DetailFilter from "./DetailFilter";
 import { useAPI } from "../CustomHook/useAPI";
 
-const navPlace = [
-  "전국",
-  "경기/인천",
-  "충청",
-  "경상/부산",
-  "전라",
-  "강원",
-  "제주",
-];
-
 function TemaCamping() {
   const { id } = useParams();
   const [checkValue, setCheckValue] = useState([]);
   const queryClient = useQueryClient();
-  const [filterDN, setFilterDN] = useState(["전국"]);
 
   const getList = async () => {
     const list = await fetch(

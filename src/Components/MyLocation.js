@@ -1,37 +1,44 @@
-import useGeolocation from "react-hook-geolocation";
 import { useQuery, useQueryClient } from "react-query";
+import { useGeolocation } from "../CustomHook/useGeolocation";
+import { useEffect, useState } from "react";
+import { useAPI } from "../CustomHook/useAPI";
+import Carousel from "./Carousel";
+
 function MyLocation() {
-  const geolocation = useGeolocation();
-  const queryClient = useQueryClient();
-  console.log(geolocation.latitude);
+  const location = useGeolocation();
+  const [campingList, setCampingList] = useState([]);
+
   const getList = async () => {
     const list = await fetch(
-      `/B551011/GoCamping/locationBasedList?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=30&pageNo=1&MobileOS=ETC&MobileApp=Hello&mapX=${geolocation.longitude}&mapY=${geolocation.latitude}&radius=20000&_type=json`
+      `/B551011/GoCamping/locationBasedList?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=30&pageNo=1&MobileOS=ETC&MobileApp=Hello&mapX=${location.location.lng}&mapY=${location.location.lat}&radius=20000&_type=json`
     );
     const json = await list.json();
-    return json;
+    const filterData = json.response.body.items.item.filter(
+      (list) => list.firstImageUrl !== ""
+    );
+    setCampingList(filterData);
   };
+  console.log(campingList);
 
-  const result = useQuery(["getLocationBasedList"], getList, {
-    onSuccess: (data) => {
-      console.log(data);
-    },
-    onError: (e) => {
-      console.log(e.message);
-    },
-    select: (data) => {
-      const filterData = data.response.body.items.item.filter(
-        (list) => list.firstImageUrl !== ""
-      );
-      return filterData;
-    },
-    staleTime: 1000 * 60 * 60 * 24,
-    cacheTime: 1000 * 60 * 60 * 24,
-    keepPreviousData: true,
-    refetchOnWindowFocus: false,
-    refetchOnMount: false,
-    refetchOnReconnect: false,
-  });
+  useEffect(() => {
+    if (location.location.lat !== 0) {
+      // useEffect을 사용해서 조건문으로 거르는 이유는 최조의 lat값이 0이 들어와 api 호출시 아무값도 나오지 않음
+      getList();
+    }
+  }, [location]);
+
+  return (
+    <div>
+      {campingList.length !== 0 ? (
+        <Carousel
+          items={campingList}
+          width="90%"
+          height="150px"
+          slidesToShow="5"
+        ></Carousel>
+      ) : null}
+    </div>
+  );
 }
 
 export default MyLocation;

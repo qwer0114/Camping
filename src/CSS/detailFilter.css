@@ -51,6 +51,7 @@
 .place_filter {
   border: 1px solid rgba(0, 0, 0, 0.3);
   position: relative;
+  margin-bottom: 10px;
 }
 
 .place_filter_title {
