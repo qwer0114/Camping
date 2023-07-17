@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const checkedValues = (isChecked, fac, checkValue, setCheckValue) => {
+  // 체크 메뉴 거르는 함수
   if (isChecked === true) {
     // 체크를 누르면 아이템 추가
     let arr = [];
@@ -16,15 +17,13 @@ function CheckBoxItem({ i, fac, checkValue, setCheckValue }) {
   useEffect(() => {}, []);
   return (
     <div key={i}>
-      {" "}
       <input
         type="checkBox"
         id={`fac${i}`}
         onChange={(e) => {
-          console.log(e.target.checked);
           checkedValues(e.target.checked, fac, checkValue, setCheckValue);
         }}
-      ></input>{" "}
+      ></input>
       <label htmlFor={`fac${i}`}>{fac}</label>
     </div>
   );

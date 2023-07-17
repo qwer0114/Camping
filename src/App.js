@@ -61,7 +61,10 @@ function App() {
             navigatePath={"place/지역/경기도"}
           ></Logo>
         </div>
-        <div>내 주변의 캠핑장</div>
+        <div className="location_camping">
+          <div> 내 주변의 캠핑장 </div>
+          <img src={require("./img/gps.png")} className="gps"></img>
+        </div>
         <MyLocation></MyLocation>
         <div
           className="ad-container"

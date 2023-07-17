@@ -20,7 +20,6 @@ function CampingList({ campingList, checkValue }) {
           );
         });
       });
-      console.log(filterList);
       setList(filterList);
     }
   }, [checkValue]);

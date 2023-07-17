@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import { useQuery, useQueryClient } from "react-query";
 import { places } from "../data";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-function PlaceFilter({ id }) {
+function PlaceFilter({ id, queryFn }) {
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
+
   return (
     <div className="place_filter">
       <div
@@ -27,9 +29,6 @@ function PlaceFilter({ id }) {
                 onClick={(e) => {
                   navigate(`/camping/place/지역/${e.target.textContent}`);
                   setModal(false);
-                }}
-                onMouseEnter={() => {
-                  // preFetchList(id);
                 }}
               >
                 {id === place ? (

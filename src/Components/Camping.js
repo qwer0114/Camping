@@ -10,28 +10,24 @@ import DetailFilter from "./DetailFilter";
 import MoonLoader from "react-spinners/ClipLoader";
 import { useAPI } from "../CustomHook/useAPI";
 import PlaceFilter from "./PlaceFilter";
+import useFetch from "../CustomHook/useFetch";
 function Camping() {
   const [checkValue, setCheckValue] = useState([]);
-  const navigate = useNavigate();
   let { id } = useParams();
 
   const queryClient = useQueryClient();
-  const getList = async () => {
-    const list = await fetch(
-      `/B551011/GoCamping/locationBasedList?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=30&pageNo=1&MobileOS=ETC&MobileApp=Hello&mapX=${data[id].경도}&mapY=${data[id].위도}&radius=20000&_type=json`
-    );
-    const json = await list.json();
-    return json;
-  };
+  const getList = useFetch(
+    `/B551011/GoCamping/locationBasedList?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=30&pageNo=1&MobileOS=ETC&MobileApp=Hello&mapX=${data[id].경도}&mapY=${data[id].위도}&radius=20000&_type=json`
+  );
 
   const result = useAPI(["getLoationList", id], getList);
 
-  // const preFetchList = async (id) => {
-  //   await queryClient.prefetchQuery({
-  //     queryKey: ["getList", id],
-  //     queryFn: getList,
-  //   });
-  // };
+  const preFetchList = async (id) => {
+    await queryClient.prefetchQuery({
+      queryKey: ["getList", id],
+      queryFn: getList,
+    });
+  };
 
   return (
     <div className="camping-page">
@@ -41,7 +37,7 @@ function Camping() {
       ) : (
         <>
           <div className="fiter_bar">
-            <PlaceFilter id={id}></PlaceFilter>
+            <PlaceFilter id={id} preFetch={preFetchList}></PlaceFilter>
             <DetailFilter
               checkValue={checkValue}
               setCheckValue={setCheckValue}
