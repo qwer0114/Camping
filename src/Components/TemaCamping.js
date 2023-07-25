@@ -12,7 +12,6 @@ function TemaCamping() {
   const { id } = useParams();
   const [checkValue, setCheckValue] = useState([]);
   const queryClient = useQueryClient();
-
   const getList = useFetch(
     `/B551011/GoCamping/searchList?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=30&pageNo=1&MobileOS=ETC&MobileApp=Hello&keyword=${id}&_type=json`
   );
@@ -27,10 +26,7 @@ function TemaCamping() {
       ) : (
         <>
           <div className="fiter_bar">
-            <DetailFilter
-              checkValue={checkValue}
-              setCheckValue={setCheckValue}
-            ></DetailFilter>
+            <DetailFilter setCheckValue={setCheckValue}></DetailFilter>
           </div>
           <CampingLists
             campingList={result.data}

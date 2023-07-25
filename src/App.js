@@ -22,7 +22,6 @@ function App() {
             지역별로 찾아보세요!
           </div>
         </div>
-
         <div className="main_icons">
           <Logo
             path={"icon-mountain"}

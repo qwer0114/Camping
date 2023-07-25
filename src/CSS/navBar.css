@@ -14,11 +14,11 @@
 .nav {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 70%;
 }
 
 .nav_phrase {
-  margin-left: auto;
   padding-right: 50px;
   color: rgba(0, 0, 0, 0.7);
 }
@@ -27,4 +27,31 @@
   width: 70%;
   font-size: 35px;
   color: rgba(0, 0, 0, 0.7);
+}
+
+.searchBar {
+  position: relative;
+  border: 0px;
+  border-bottom: 1px solid black;
+  outline: none;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search {
+  border: 0px;
+  outline: none;
+  width: 100%;
+}
+
+.searchBar_icon {
+  width: 3%;
+}
+
+.search_modal {
+  position: absolute;
+  background-color: white;
+  top: 30px;
+  width: 100%;
 }

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Logo from "./Logo";
+import SearchBar from "./SearchBar";
 function NavBar({ pageTitle, navPlace }) {
   const navigate = useNavigate();
-  const [rootPage, setRootPage] = useState(true);
-  const [navModal, setNavModal] = useState(false);
+
   return (
     <>
       <div className="navBar">
@@ -17,11 +17,9 @@ function NavBar({ pageTitle, navPlace }) {
               navigate("/");
             }}
           ></img>
-
+          <SearchBar></SearchBar>
           <div className="nav_phrase">당신을 위한 캠핑</div>
         </div>
-
-        <div className="nav_pageTitle">{pageTitle}</div>
       </div>
     </>
   );

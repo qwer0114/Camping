@@ -18,7 +18,6 @@ function MyLocation() {
     );
     setCampingList(filterData);
   };
-  console.log(campingList);
 
   useEffect(() => {
     if (location.location.lat !== 0) {

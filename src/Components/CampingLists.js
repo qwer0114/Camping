@@ -30,29 +30,33 @@ function CampingList({ campingList, checkValue }) {
 
   return (
     <div className="lists_container">
-      {list.map((list, i) => {
-        return (
-          <div className="list_item" key={i}>
-            <div
-              className="camping_image"
-              style={{
-                background: `url(${list.firstImageUrl}) no-repeat center/cover `,
-              }}
-              onClick={() => {
-                navigate(`/campingDetail/${list.contentId}`, {
-                  state: list,
-                });
-              }}
-            >
-              <div className="camping_text">
-                <div className="camping_name">{list.facltNm}</div>
-                <div className="camping_address">{list.addr1}</div>
-                <div className="camping_address">{list.operPdCl}</div>
+      {list !== undefined ? ( // 캠핑장 리스트가 존재하지 않을 때 검사
+        list.map((list, i) => {
+          return (
+            <div className="list_item" key={i}>
+              <div
+                className="camping_image"
+                style={{
+                  background: `url(${list.firstImageUrl}) no-repeat center/cover `,
+                }}
+                onClick={() => {
+                  navigate(`/campingDetail/${list.contentId}`, {
+                    state: list,
+                  });
+                }}
+              >
+                <div className="camping_text">
+                  <div className="camping_name">{list.facltNm}</div>
+                  <div className="camping_address">{list.addr1}</div>
+                  <div className="camping_address">{list.operPdCl}</div>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })
+      ) : (
+        <h1>존재하지 않습니다!</h1>
+      )}
     </div>
   );
 }
