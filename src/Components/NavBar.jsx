@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { useNavigate } from "react-router";
-import Logo from "./Logo";
+
 import SearchBar from "./SearchBar";
 function NavBar({ pageTitle, navPlace }) {
   const navigate = useNavigate();

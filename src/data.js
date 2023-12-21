@@ -1,4 +1,4 @@
-const data = {
+const location = {
   경기도: {
     위도: 37.4363177,
     경도: 127.550802,
@@ -70,4 +70,4 @@ const places = [
   "충청북도",
   "제주도",
 ];
-export { data, facility, places };
+export { location, facility, places };

@@ -1,28 +1,20 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import Carousel from "./Carousel";
-import Facility from "./Facility";
-
-import Map from "./Map";
-import NavBar from "./NavBar";
+import Carousel from "../components/Carousel";
+import Facility from "../components/Facility";
+import Map from "../components/Map";
+import NavBar from "../components/NavBar";
+import { useCampingImage } from "../CustomHook/api/useCampingImage";
 
 function CampingDetail() {
   const { state } = useLocation();
   const [images, setImages] = useState([]);
   const [facilities, setFacilities] = useState([]);
 
-  console.log(state);
-
-  const getList = async () => {
-    const imageLists = await fetch(
-      `/B551011/GoCamping/imageList?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=${state.contentId}&_type=json`
-    );
-    const json = await imageLists.json();
-    setImages(json.response.body.items.item);
-  };
+  const { data, error } = useCampingImage(state);
+  console.log(data);
 
   useEffect(() => {
-    getList();
     let arr = [
       ...state.sbrsCl.split(","),
       ...state.glampInnerFclty.split(","),
@@ -31,9 +23,13 @@ function CampingDetail() {
     let filter = arr.filter((arr) => {
       return arr !== "";
     });
-    console.log(filter);
+
     setFacilities([...new Set(filter)]);
   }, []);
+
+  useEffect(() => {
+    if (data) setImages([...data]);
+  }, [data]);
 
   return (
     <>
@@ -42,9 +38,9 @@ function CampingDetail() {
         <div className="faclNm">{state.facltNm}</div>
         <div className="camping_address">{state.induty}</div>
 
-        {images.length !== 0 ? (
+        {images?.length !== 0 ? (
           <Carousel
-            items={images}
+            items={data}
             width="100%"
             height="550px"
             slidesToShow="1"

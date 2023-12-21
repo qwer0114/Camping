@@ -9,7 +9,7 @@ function Carousel({ items, width, height, slidesToShow, url }) {
     slidesToShow: Number(slidesToShow),
     slidesToScroll: 1,
   };
-
+  console.log(items);
   return (
     <div>
       <Slider {...settings}>

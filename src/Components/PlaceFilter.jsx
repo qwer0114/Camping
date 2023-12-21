@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useQuery, useQueryClient } from "react-query";
 import { places } from "../data";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
