@@ -36,9 +36,9 @@
 
 .slick-prev {
   z-index: 9999;
-  left: 25px !important;
+  left: 2% !important;
 }
 
 .slick-next {
-  right: 25px !important;
+  right: 2% !important;
 }

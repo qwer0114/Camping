@@ -2,12 +2,7 @@ import { useNavigate } from "react-router-dom";
 function Logo({ path, title, onClickEvent, navigatePath }) {
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      className="icon"
       onClick={() => {
         onClickEvent(`camping/${navigatePath}`);
       }}
@@ -15,10 +10,12 @@ function Logo({ path, title, onClickEvent, navigatePath }) {
       <img
         src={require(`../img/navIcons/${path}.png`)}
         alt="Image"
-        className="main_icon"
+        className="main_icon_image"
         style={{ paddingBottom: "10px" }}
       ></img>
-      <div style={{ cursor: "pointer" }}>{title}</div>
+      <div className="main_icon_title" style={{ cursor: "pointer" }}>
+        {title}
+      </div>
     </div>
   );
 }

@@ -8,9 +8,9 @@ function App() {
   const navigate = useNavigate();
   const location = useGeolocation();
   return (
-    <>
+    <div className="App">
       <NavBar content={"지역별"}></NavBar>
-      <div className="App">
+      <div className="main">
         <div className="main_image">
           <div className="main_image_text">당신을 위한 캠핑</div>
           <div
@@ -23,46 +23,46 @@ function App() {
           </div>
         </div>
         <div className="main_icons">
-          <Logo
-            path={"icon-mountain"}
-            title={"산"}
-            onClickEvent={navigate}
-            navigatePath={"search/산"}
-          ></Logo>
-          <Logo
-            path={"icon-sea"}
-            title={"바다"}
-            onClickEvent={navigate}
-            navigatePath={"search/바다"}
-          ></Logo>
-          <Logo
-            path={"icon-river"}
-            title={"계곡"}
-            onClickEvent={navigate}
-            navigatePath={"search/계곡"}
-          ></Logo>
-          <Logo
-            path={"icon-camping"}
-            title={"글램핑"}
-            onClickEvent={navigate}
-            navigatePath={"search/글램핑"}
-          ></Logo>
-          <Logo
-            path={"icon-carvan"}
-            title={"카라반"}
-            onClickEvent={navigate}
-            navigatePath={"search/카라반"}
-          ></Logo>
-          <Logo
-            path={"icon-korea"}
-            title={"지역"}
-            onClickEvent={navigate}
-            navigatePath={"place/지역/경기도"}
-          ></Logo>
-        </div>
-        <div className="location_camping">
-          <div> 내 주변의 캠핑장 </div>
-          <img src={require("../img/gps.png")} className="gps"></img>
+          <div className="main_icon_group">
+            <Logo
+              path={"icon-mountain"}
+              title={"산"}
+              onClickEvent={navigate}
+              navigatePath={"search/산"}
+            ></Logo>
+            <Logo
+              path={"icon-sea"}
+              title={"바다"}
+              onClickEvent={navigate}
+              navigatePath={"search/바다"}
+            ></Logo>
+            <Logo
+              path={"icon-river"}
+              title={"계곡"}
+              onClickEvent={navigate}
+              navigatePath={"search/계곡"}
+            ></Logo>
+          </div>
+          <div className="main_icon_group">
+            <Logo
+              path={"icon-camping"}
+              title={"글램핑"}
+              onClickEvent={navigate}
+              navigatePath={"search/글램핑"}
+            ></Logo>
+            <Logo
+              path={"icon-carvan"}
+              title={"카라반"}
+              onClickEvent={navigate}
+              navigatePath={"search/카라반"}
+            ></Logo>
+            <Logo
+              path={"icon-korea"}
+              title={"지역"}
+              onClickEvent={navigate}
+              navigatePath={"place/지역/경기도"}
+            ></Logo>
+          </div>
         </div>
         {location !== 0 ? (
           <MyLocation lat={location.location.lat} lng={location.location.lng} />
@@ -77,7 +77,7 @@ function App() {
           <img className="ad_image" src={require("../img/tent.png")}></img>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
