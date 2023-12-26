@@ -23,7 +23,7 @@ function Camping() {
       {isLoading === true ? (
         <MoonLoader color="#36d7b7"></MoonLoader>
       ) : (
-        <>
+        <div className="camping_lists">
           <div className="fiter_bar">
             <PlaceFilter id={id}></PlaceFilter>
             <DetailFilter
@@ -35,7 +35,7 @@ function Camping() {
             campingList={data}
             checkValue={checkValue}
           ></CampingLists>
-        </>
+        </div>
       )}
     </div>
   );

@@ -41,14 +41,13 @@ function CampingDetail() {
         {images?.length !== 0 ? (
           <Carousel
             items={data}
-            width="100%"
-            height="550px"
+            className={"carousel_img"}
             slidesToShow="1"
             url="item.imageUrl"
           ></Carousel>
         ) : null}
 
-        <div>
+        <div className="detail_text">
           <div className="detail_Lineintro">
             {state.lineIntro !== "" ? state.lineIntro : state.facltNm}
           </div>

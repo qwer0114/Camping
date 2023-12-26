@@ -14,6 +14,13 @@ function MyLocation({ lng, lat }) {
       },
     },
     {
+      breakpoint: 750,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+    {
       breakpoint: 1023,
       settings: {
         slidesToShow: 3,
@@ -22,19 +29,6 @@ function MyLocation({ lng, lat }) {
     },
   ];
 
-  const [width, setWidth] = useState(window.innerWidth);
-
-  const handleResize = () => {
-    setWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      // cleanup
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   return (
     <div className="myLocation">
       <div className="location_camping">
@@ -44,7 +38,7 @@ function MyLocation({ lng, lat }) {
       {data ? (
         <Carousel
           items={data}
-          width={width > 480 ? "95%" : "100%"}
+          className={"myLocation_carousel"}
           height="150px"
           slidesToShow="4"
           responsive={responsive}

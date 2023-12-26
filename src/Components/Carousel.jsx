@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import Slider from "react-slick/lib/slider";
 
-function Carousel({ items, width, height, slidesToShow, url, responsive }) {
+function Carousel({ items, className, slidesToShow, url, responsive }) {
   const navigate = useNavigate();
   const settings = {
     arrows: true,
@@ -24,10 +24,8 @@ function Carousel({ items, width, height, slidesToShow, url, responsive }) {
                 src={
                   url === "item.imageUrl" ? item.imageUrl : item.firstImageUrl
                 }
-                className="carousel_img"
+                className={className}
                 style={{
-                  width: width,
-                  height: height,
                   objectFit: "cover",
                   borderRadius: "10px",
                 }}
@@ -36,7 +34,7 @@ function Carousel({ items, width, height, slidesToShow, url, responsive }) {
                 onClick={() => {
                   navigate(`/campingDetail/${item.contentId}`, { state: item });
                 }}
-                style={{ width: width, textAlign: "center" }}
+                className="carousel_text"
               >
                 {item.facltNm}
               </div>

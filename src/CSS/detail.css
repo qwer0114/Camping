@@ -9,10 +9,11 @@
 
 .detail_intro {
   font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .faclNm {
-  font-size: 30px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -41,4 +42,70 @@
 
 .slick-next {
   right: 2% !important;
+}
+
+.carousel_img {
+  width: 100%;
+  height: 550px;
+}
+
+#map {
+  width: 100%;
+  height: 500px;
+  margin-bottom: 100px;
+}
+
+@media all and (min-width: 0px) and (max-width: 767px) {
+  .detail_text {
+    padding: 0px 20px;
+  }
+  .detail {
+    width: 100%;
+  }
+
+  .carousel_img {
+    height: 200px;
+  }
+
+  .faclNm {
+    padding: 5px;
+    font-size: 1.5rem;
+  }
+
+  .detail_Lineintro {
+    font-size: 1.3rem;
+  }
+  .detail_intro {
+    font-size: 1rem;
+  }
+
+  #map {
+    width: 100%;
+    height: 700px;
+    margin-bottom: 100px;
+  }
+}
+
+/* 테블릿 가로 (해상도 768px ~ 1023px)*/
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .detail_text {
+    padding: 0px 20px;
+  }
+
+  .detail {
+    width: 100%;
+  }
+
+  .carousel_img {
+    height: 400px;
+  }
+
+  .faclNm {
+    padding: 5px;
+    font-size: 1.5rem;
+  }
+
+  .detail_Lineintro {
+    font-size: 1.3rem;
+  }
 }

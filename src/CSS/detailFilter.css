@@ -1,12 +1,15 @@
+.filter_page {
+}
 .detail_filter {
-  width: 100%;
+  position: fixed;
+  width: 18rem;
   border: 1px solid rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   padding-left: 10px;
-
   left: 110px;
+  visibility: visible;
 }
 
 .detail_filter_buttons {
@@ -46,7 +49,8 @@
 }
 
 .detail_filter_publicFac div {
-  width: 120px;
+  width: 100px;
+  padding: 0.4rem;
 }
 .place_filter {
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -77,4 +81,18 @@
   color: rgba(0, 0, 0, 0.4);
   font-size: 15px;
   padding-right: 10px;
+}
+
+@media screen and (max-width: 479px) {
+}
+
+/* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/
+@media all and (min-width: 480px) and (max-width: 767px) {
+}
+
+/* 테블릿 가로 (해상도 768px ~ 1023px)*/
+@media all and (min-width: 0px) and (max-width: 1400px) {
+  .detail_filter {
+    display: none;
+  }
 }

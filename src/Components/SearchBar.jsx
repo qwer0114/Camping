@@ -22,35 +22,12 @@ function SearchBar() {
           onEnter(e);
         }}
       ></input>
-      {modal === false ? (
-        <img
-          src={require(`../img/navIcons/magnifier.png`)}
-          className="searchBar_icon"
-          onClick={() => {
-            setModal(!modal);
-          }}
-        ></img>
-      ) : (
-        <span
-          onClick={() => {
-            setModal(!modal);
-          }}
-        >
-          X
-        </span>
-      )}
-      {modal !== false ? (
-        <div className="search_modal">
-          <ul className="recommend_search">
-            <li>추천검색어</li>
-            <li>계곡</li>
-            <li>바다</li>
-            <li>글램핑</li>
-            <li>카라반</li>
-            <li>남해</li>
-          </ul>
-        </div>
-      ) : null}
+
+      <img
+        alt="magnifier"
+        src={require(`../img/navIcons/magnifier.png`)}
+        className="searchBar_icon"
+      ></img>
     </div>
   );
 }

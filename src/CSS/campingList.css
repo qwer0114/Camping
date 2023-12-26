@@ -1,3 +1,10 @@
+.camping_lists {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .lists_container {
   width: 70%;
   display: flex;
@@ -6,22 +13,10 @@
   justify-content: center;
 }
 
-.fiter_bar {
-  width: 15%;
-}
-
 .list_item {
   padding: 10px;
   width: 100%;
 }
-
-.camping-page {
-  width: 100%;
-  display: flex;
-
-  justify-content: center;
-}
-
 .camping_name {
   font-weight: bold;
   cursor: pointer;
@@ -55,4 +50,63 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   padding-left: 10px;
+}
+
+.filter_button {
+  display: none;
+  background-color: transparent;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.5);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+  font-size: 1.3rem;
+}
+
+.filter_button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.filter_image {
+  width: 1.5rem;
+}
+
+/* 테블릿 가로 (해상도 768px ~ 1023px)*/
+@media all and (min-width: 0px) and (max-width: 700px) {
+  .camping_lists {
+    flex-direction: column;
+    align-items: center;
+  }
+  .filter_button {
+    display: block;
+    align-self: flex-end;
+    margin-right: 20px;
+  }
+  .lists_container {
+    width: 100%;
+  }
+
+  .camping_image {
+    width: 90%;
+    height: 220px;
+  }
+
+  .camping_name {
+    font-size: 1rem;
+  }
+}
+
+/* 테블릿 가로 (해상도 768px ~ 1023px)*/
+@media all and (min-width: 701px) and (max-width: 1400px) {
+  .camping_lists {
+    flex-direction: column;
+    align-items: center;
+  }
+  .filter_button {
+    display: block;
+    align-self: flex-end;
+    margin-right: 20px;
+  }
+  .camping_image {
+    width: 90%;
+  }
 }

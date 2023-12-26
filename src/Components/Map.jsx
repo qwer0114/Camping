@@ -21,12 +21,7 @@ function Map({ lat, lng }) {
     marker.setMap(map);
   }, []);
 
-  return (
-    <div
-      id="map"
-      style={{ width: "100%", height: "500px", marginBottom: "100px" }}
-    ></div>
-  );
+  return <div id="map"></div>;
 }
 
 export default Map;

@@ -113,6 +113,13 @@
 .myLocation {
   width: 100%;
 }
+.myLocation_carousel {
+  width: 95%;
+  height: 150px;
+}
+.carousel_text {
+  text-align: center;
+}
 
 @media screen and (max-width: 479px) {
   .main {
@@ -153,6 +160,11 @@
   .main_icon_group {
     width: 100%;
     justify-content: space-around;
+  }
+
+  .myLocation_carousel {
+    width: 100%;
+    height: 150px;
   }
 }
 

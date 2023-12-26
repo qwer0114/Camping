@@ -1,10 +1,18 @@
+.facility_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
 .facility_icons {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 10px;
-  width: 30%;
+  width: 5.5rem;
 }
 .detail_facility {
   border-top: 1px solid rgba(0, 0, 0, 0.3);
@@ -12,15 +20,9 @@
 }
 
 .facility_icon {
-  width: 10%;
+  width: 2rem;
 }
 
-.facility_container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-}
 .facility_tag {
   font-size: 25px;
 }
