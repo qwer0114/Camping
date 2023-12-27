@@ -1,6 +1,3 @@
-.modal_root {
-  position: relative;
-}
 .modal {
   position: fixed;
   left: 0;
@@ -130,6 +127,11 @@
   width: 6rem;
   height: 3rem;
   border-radius: 10px;
+}
+
+.search_modal {
+  width: 100%;
+  height: 100vh;
 }
 
 @media screen and (max-width: 479px) {

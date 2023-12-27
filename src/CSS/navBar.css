@@ -46,14 +46,8 @@
 }
 
 .searchBar_icon {
-  width: 1.5rem;
-}
-
-.search_modal {
-  position: absolute;
-  background-color: white;
-  top: 30px;
-  width: 100%;
+  width: 1.3rem;
+  visibility: hidden;
 }
 
 .site_logo {
@@ -67,15 +61,15 @@
   }
 
   .searchBar {
-    width: 10%;
-    border-bottom: none;
-  }
-  .search {
-    display: none;
+    margin: 0 auto;
   }
 
   .nav_phrase {
     display: none;
+  }
+
+  .searchBar_icon {
+    visibility: visible;
   }
 }
 
@@ -87,13 +81,14 @@
   }
 
   .searchBar {
-    width: 10%;
-    border-bottom: none;
+    margin: 0 auto;
   }
-  .search {
-    display: none;
-  }
+
   .nav_phrase {
     display: none;
+  }
+
+  .searchBar_icon {
+    visibility: visible;
   }
 }

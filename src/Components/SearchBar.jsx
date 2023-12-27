@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import useModal from "../CustomHook/useModal";
 
 function SearchBar() {
   const navigate = useNavigate();
-  const [modal, setModal] = useState(false);
 
   function onEnter(e) {
     if (e.code === "Enter") {
@@ -14,21 +14,23 @@ function SearchBar() {
     }
   }
   return (
-    <div className="searchBar">
-      <input
-        className="search"
-        placeholder="원하는 캠핑장을 찾아보세요!"
-        onKeyDown={(e) => {
-          onEnter(e);
-        }}
-      ></input>
+    <>
+      <div className="searchBar">
+        <input
+          className="search"
+          placeholder="원하는 캠핑장을 찾아보세요!"
+          onKeyDown={(e) => {
+            onEnter(e);
+          }}
+        ></input>
 
-      <img
-        alt="magnifier"
-        src={require(`../img/navIcons/magnifier.png`)}
-        className="searchBar_icon"
-      ></img>
-    </div>
+        <img
+          alt="magnifier"
+          src={require(`../img/navIcons/magnifier.png`)}
+          className="searchBar_icon"
+        ></img>
+      </div>
+    </>
   );
 }
 
