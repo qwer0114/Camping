@@ -22,6 +22,7 @@ function CampingList({ campingList, checkValue }) {
       setList(filterList);
     }
   }, [checkValue]);
+  console.log(list.length);
 
   useEffect(() => {
     setList(campingList);
@@ -29,7 +30,9 @@ function CampingList({ campingList, checkValue }) {
 
   return (
     <div className="lists_container">
-      {list !== undefined ? ( // 캠핑장 리스트가 존재하지 않을 때 검사
+      {list === undefined || list.length === 0 ? ( // 캠핑장 리스트가 존재하지 않을 때 검사
+        <h1>존재하지 않습니다!</h1>
+      ) : (
         list.map((list, i) => {
           return (
             <div className="list_item" key={i}>
@@ -53,8 +56,6 @@ function CampingList({ campingList, checkValue }) {
             </div>
           );
         })
-      ) : (
-        <h1>존재하지 않습니다!</h1>
       )}
     </div>
   );

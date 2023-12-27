@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import CampingLists from "../components/CampingLists";
 import MoonLoader from "react-spinners/ClipLoader";
 import Modal from "../components/modal/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTemaCamping } from "../CustomHook/api/useTemaCamping";
 import useModal from "../CustomHook/useModal";
 import Filter from "../components/modal/Filter";
@@ -15,12 +15,15 @@ function TemaCamping() {
   const [checkValue, setCheckValue] = useState([]);
   const { data, isLoading } = useTemaCamping(id);
 
-  console.log(visibility);
+  useEffect(() => {
+    if (visibility) document.querySelector("body").style.overflow = "hidden";
+    else document.querySelector("body").style.overflow = "auto";
+  }, [visibility]);
 
   return (
     <>
-      <div className="camping-page">
-        <NavBar></NavBar>
+      <div className={visibility ? "scroll_locked" : "camping_page"}>
+        {visibility ? null : <NavBar></NavBar>}
         {isLoading === true ? (
           <MoonLoader color="#36d7b7"></MoonLoader>
         ) : (
@@ -52,7 +55,11 @@ function TemaCamping() {
         )}
       </div>
       <Modal closeModal={closeModal} visibility={visibility}>
-        <Filter closeModal={closeModal} />
+        <Filter
+          checkValue={checkValue}
+          setCheckValue={setCheckValue}
+          closeModal={closeModal}
+        />
       </Modal>
     </>
   );

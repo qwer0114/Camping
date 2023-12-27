@@ -4,6 +4,7 @@ import CheckBoxItem from "./CheckBoxItem";
 
 function DetailFilter({ setCheckValue, visibility }) {
   const [checkedValue, setCheckedValue] = useState([]); // 체크 리스트를 한번에 적용하기 위해 state 한번더 사용 아니면 적용 버튼 안눌러도 체크리스트 클릭 즉시 캠핑장 변경됨
+
   return (
     <div className="detail_filter">
       <div className="detail_filter_buttons">

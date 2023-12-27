@@ -14,7 +14,6 @@ const checkedValues = (isChecked, fac, checkValue, setCheckValue) => {
 };
 
 function CheckBoxItem({ i, fac, checkValue, setCheckValue }) {
-  useEffect(() => {}, []);
   return (
     <div key={i}>
       <input

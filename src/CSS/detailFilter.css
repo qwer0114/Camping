@@ -2,7 +2,7 @@
 }
 .detail_filter {
   position: fixed;
-  width: 18rem;
+  width: 20rem;
   border: 1px solid rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
   display: flex;
@@ -49,8 +49,9 @@
 }
 
 .detail_filter_publicFac div {
-  width: 100px;
+  width: 110px;
   padding: 0.4rem;
+  font-size: 1.1rem;
 }
 .place_filter {
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -83,11 +84,11 @@
   padding-right: 10px;
 }
 
-@media screen and (max-width: 479px) {
-}
-
 /* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/
-@media all and (min-width: 480px) and (max-width: 767px) {
+@media all and (min-width: 0px) and (max-width: 767px) {
+  .place_filter {
+    margin-left: 20px;
+  }
 }
 
 /* 테블릿 가로 (해상도 768px ~ 1023px)*/
