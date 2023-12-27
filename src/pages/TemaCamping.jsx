@@ -1,13 +1,13 @@
-import NavBar from "../components/header/NavBar";
+import NavBar from "../Components/header/NavBar";
 import { useParams } from "react-router-dom";
-import CampingLists from "../components/CampingLists";
+import CampingLists from "../Components/CampingLists";
 import MoonLoader from "react-spinners/ClipLoader";
-import Modal from "../components/modal/Modal";
+import Modal from "../Components/modal/Modal";
 import { useEffect, useState } from "react";
 import { useTemaCamping } from "../CustomHook/api/useTemaCamping";
 import useModal from "../CustomHook/useModal";
-import Filter from "../components/modal/Filter";
-import DetailFilter from "../components/filter/DetailFilter";
+import Filter from "../Components/modal/Filter";
+import DetailFilter from "../Components/filter/DetailFilter";
 import filter from "../img/filter.png";
 
 function TemaCamping() {
