@@ -1,14 +1,10 @@
-.filter_page {
-}
 .detail_filter {
-  position: fixed;
   width: 20rem;
   border: 1px solid rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   padding-left: 10px;
-  left: 110px;
   visibility: visible;
 }
 
@@ -55,27 +51,46 @@
 }
 .place_filter {
   border: 1px solid rgba(0, 0, 0, 0.3);
-  position: relative;
+  top: 150px;
   margin-bottom: 10px;
+  z-index: 100;
+  width: 20rem;
 }
 
 .place_filter_title {
-  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
   font-weight: bold;
   padding-left: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .place_filter_items {
   position: absolute;
-  z-index: 9999;
+  width: 20rem;
+}
+
+@keyframes dropdown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.place_filter_item {
+  border: 1px solid rgba(0, 0, 0, 0.3);
   background-color: white;
-  width: 100%;
+  animation: dropdown 0.4s ease;
   font-size: 17px;
-  padding-left: 10px;
   cursor: pointer;
+  background-color: white;
+}
+
+.place_filter_item:hover {
+  background-color: rgb(230, 226, 226);
 }
 
 .arrow_down {
@@ -88,6 +103,10 @@
 @media all and (min-width: 0px) and (max-width: 767px) {
   .place_filter {
     margin-left: 20px;
+    width: 10rem;
+  }
+  .place_filter_item {
+    width: 10rem;
   }
 }
 

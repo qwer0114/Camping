@@ -25,7 +25,7 @@ function Camping() {
   }, [visibility]);
 
   return (
-    <div className="camping-page">
+    <div className={visibility ? "scroll_locked" : "camping_page"}>
       {visibility ? null : <NavBar></NavBar>}
       {isLoading === true ? (
         <MoonLoader color="#36d7b7"></MoonLoader>
