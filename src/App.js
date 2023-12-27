@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import TemaCamping from "./pages/TemaCamping";
+import NotFound from "./pages/NotFound";
 function App() {
   const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/camping/place/지역/:id" element={<Camping />}></Route>
           <Route path="/camping/search/:id" element={<TemaCamping />}></Route>
           <Route path="/campingDetail/:id" element={<CampingDetail />}></Route>
+          <Route path="/*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

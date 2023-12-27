@@ -12,6 +12,7 @@
 @import "./CSS/campingList.css";
 @import "./CSS/detailFilter.css";
 @import "./CSS/modal.css";
+@import "./CSS/notFound.css";
 body {
   margin: 0;
   font-family: "SUITE-Regular";

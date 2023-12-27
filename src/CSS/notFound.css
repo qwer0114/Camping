@@ -1,0 +1,22 @@
+.notFound_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.notFound_subText {
+  text-align: center;
+}
+.notFound_message {
+  font-size: 3rem;
+}
+
+.notFound_link {
+  border-bottom: 1px solid black;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.notFound_link:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
