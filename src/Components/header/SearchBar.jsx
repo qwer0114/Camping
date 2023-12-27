@@ -6,6 +6,7 @@ function SearchBar() {
   function onEnter(e) {
     if (e.code === "Enter") {
       navigate(`/camping/search/${e.target.value}`);
+      window.location.reload();
       return false; // 추가적인 이벤트 실행을 방지하기 위해 false 리턴
     } else {
       return true;

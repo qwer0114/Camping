@@ -22,7 +22,7 @@ function CampingList({ campingList, checkValue }) {
       setList(filterList);
     }
   }, [checkValue]);
-  console.log(list.length);
+  console.log(list?.length);
 
   useEffect(() => {
     setList(campingList);
