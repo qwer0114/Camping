@@ -1,4 +1,4 @@
-import { facility } from "../data";
+import { facility } from "../../data";
 function Facility({ facilities }) {
   console.log(facilities);
 
@@ -10,12 +10,12 @@ function Facility({ facilities }) {
             {facilityItem === "마트.편의점" ? (
               <img
                 className="facility_icon"
-                src={require(`../img/facilityIcons/${facility["편의점"]}.png`)}
+                src={require(`../../img/facilityIcons/${facility["편의점"]}.png`)}
               ></img>
             ) : (
               <img
                 className="facility_icon"
-                src={require(`../img/facilityIcons/${facility[facilityItem]}.png`)}
+                src={require(`../../img/facilityIcons/${facility[facilityItem]}.png`)}
               ></img>
             )}
             <div className="facility_name">{facilityItem}</div>

@@ -1,4 +1,4 @@
-import NavBar from "../components/NavBar";
+import NavBar from "../components/header/NavBar";
 import { useNavigate } from "react-router-dom";
 import MyLocation from "../components/MyLocation";
 import { useGeolocation } from "../CustomHook/useGeolocation";

@@ -9,7 +9,7 @@ function NavBar({ pageTitle, navPlace }) {
       <div className="navBar">
         <div className="nav">
           <img
-            src={require("../img/logo.png")}
+            src={require("../../img/logo.png")}
             alt=""
             className="site_logo"
             onClick={() => {

@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { useNavigate } from "react-router";
-import useModal from "../CustomHook/useModal";
 
 function SearchBar() {
   const navigate = useNavigate();
@@ -26,7 +24,7 @@ function SearchBar() {
 
         <img
           alt="magnifier"
-          src={require(`../img/navIcons/magnifier.png`)}
+          src={require(`../../img/navIcons/magnifier.png`)}
           className="searchBar_icon"
         ></img>
       </div>

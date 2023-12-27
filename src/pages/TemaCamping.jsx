@@ -1,4 +1,4 @@
-import NavBar from "../components/NavBar";
+import NavBar from "../components/header/NavBar";
 import { useParams } from "react-router-dom";
 import CampingLists from "../components/CampingLists";
 import MoonLoader from "react-spinners/ClipLoader";
@@ -7,8 +7,9 @@ import { useEffect, useState } from "react";
 import { useTemaCamping } from "../CustomHook/api/useTemaCamping";
 import useModal from "../CustomHook/useModal";
 import Filter from "../components/modal/Filter";
-import DetailFilter from "../components/DetailFilter";
+import DetailFilter from "../components/filter/DetailFilter";
 import filter from "../img/filter.png";
+
 function TemaCamping() {
   const { id } = useParams();
   const { visibility, openModal, closeModal } = useModal();

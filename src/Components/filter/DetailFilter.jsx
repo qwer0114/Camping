@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { facility } from "../data";
+import { facility } from "../../data";
 import CheckBoxItem from "./CheckBoxItem";
 
 function DetailFilter({ setCheckValue, visibility }) {

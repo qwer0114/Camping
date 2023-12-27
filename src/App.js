@@ -20,7 +20,6 @@ function App() {
           <Route path="/campingDetail/:id" element={<CampingDetail />}></Route>
         </Routes>
       </BrowserRouter>
-      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   );
 }

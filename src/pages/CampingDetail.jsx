@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import Carousel from "../components/Carousel";
-import Facility from "../components/Facility";
+import Facility from "../components/filter/Facility";
 import Map from "../components/Map";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/header/NavBar";
 import { useCampingImage } from "../CustomHook/api/useCampingImage";
 
 function CampingDetail() {
@@ -12,7 +12,6 @@ function CampingDetail() {
   const [facilities, setFacilities] = useState([]);
 
   const { data, error } = useCampingImage(state);
-  console.log(data);
 
   useEffect(() => {
     let arr = [

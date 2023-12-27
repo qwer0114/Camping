@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import CampingLists from "../components/CampingLists";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/header/NavBar";
 import { location } from "../data";
 import { useParams } from "react-router-dom";
-import DetailFilter from "../components/DetailFilter";
+import DetailFilter from "../components/filter/DetailFilter";
 import MoonLoader from "react-spinners/ClipLoader";
-import PlaceFilter from "../components/PlaceFilter";
+import PlaceFilter from "../components/filter/PlaceFilter";
 import { useLocationCamping } from "../CustomHook/api/useLocationCamping";
 import useModal from "../CustomHook/useModal";
 import filter from "../img/filter.png";

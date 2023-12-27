@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { facility } from "../../data";
-import DetailFilter from "../DetailFilter";
-import CheckBoxItem from "../CheckBoxItem";
+import DetailFilter from "../filter/DetailFilter";
+import CheckBoxItem from "../filter/CheckBoxItem";
 
 export default function Filter({ closeModal, checkValue, setCheckValue }) {
   const [checkedValue, setCheckedValue] = useState([...checkValue]);
