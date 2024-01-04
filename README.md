@@ -1,7 +1,7 @@
 # netlify 배포 주소
 https://campinfo.netlify.app/
 
-# To-DO
+# TO-DO
 - Infinite Scrolling
 - ts migration
 - style component apply
