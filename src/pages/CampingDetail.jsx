@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import Carousel from "../Components/Carousel";
-import Facility from "../Components/filter/Facility";
-import Map from "../Components/Map";
-import NavBar from "../Components/header/NavBar";
-import { useCampingImage } from "../CustomHook/api/useCampingImage";
+import Carousel from "../components/Carousel";
+import Facility from "../components/filter/Facility";
+import Map from "../components/Map";
+import NavBar from "../components/header/NavBar";
+import { useCampingImage } from "../customHook/api/useCampingImage";
 
 function CampingDetail() {
   const { state } = useLocation();

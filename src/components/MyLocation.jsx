@@ -1,6 +1,6 @@
-import { useGeolocation } from "../CustomHook/useGeolocation";
+import { useGeolocation } from "../customHook/useGeolocation";
 import Carousel from "./Carousel";
-import { useLocationCamping } from "../CustomHook/api/useLocationCamping";
+import { useLocationCamping } from "../customHook/api/useLocationCamping";
 import { useEffect, useState } from "react";
 function MyLocation({ lng, lat }) {
   const { data } = useLocationCamping(lat, lng);
