@@ -5,14 +5,14 @@
   font-weight: 500;
   font-style: normal;
 }
-@import "./CSS/App.css";
-@import "./CSS/navBar.css";
-@import "./CSS/facility.css";
-@import "./CSS/detail.css";
-@import "./CSS/campingList.css";
-@import "./CSS/detailFilter.css";
-@import "./CSS/modal.css";
-@import "./CSS/notFound.css";
+@import "./css/App.css";
+@import "./css/navBar.css";
+@import "./css/facility.css";
+@import "./css/detail.css";
+@import "./css/campingList.css";
+@import "./css/detailFilter.css";
+@import "./css/modal.css";
+@import "./css/notFound.css";
 body {
   margin: 0;
   font-family: "SUITE-Regular";

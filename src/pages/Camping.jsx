@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import CampingLists from "../Components/CampingLists";
-import NavBar from "../Components/header/NavBar";
+import CampingLists from "../components/CampingLists";
+import NavBar from "../components/header/NavBar";
 import { location } from "../data";
 import { useParams } from "react-router-dom";
-import DetailFilter from "../Components/filter/DetailFilter";
+import DetailFilter from "../components/filter/DetailFilter";
 import MoonLoader from "react-spinners/ClipLoader";
-import PlaceFilter from "../Components/filter/PlaceFilter";
-import { useLocationCamping } from "../CustomHook/api/useLocationCamping";
-import useModal from "../CustomHook/useModal";
+import PlaceFilter from "../components/filter/PlaceFilter";
+import { useLocationCamping } from "../customHook/api/useLocationCamping";
+import useModal from "../customHook/useModal";
 import filter from "../img/filter.png";
-import Modal from "../Components/modal/Modal";
-import Filter from "../Components/modal/Filter";
+import Modal from "../components/modal/Modal";
+import Filter from "../components/modal/Filter";
 function Camping() {
   const [checkValue, setCheckValue] = useState([]);
   let { id } = useParams();
