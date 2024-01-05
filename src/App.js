@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/camping/place/지역/:id" element={<Camping />}></Route>
-          <Route path="/camping/search/:id" element={<TemaCamping />}></Route>
+          <Route path="/camping/search/" element={<TemaCamping />}></Route>
           <Route path="/campingDetail/:id" element={<CampingDetail />}></Route>
           <Route path="/*" element={<NotFound />}></Route>
         </Routes>

@@ -13,7 +13,7 @@ export async function getLocationCamping(latitude, longtitude) {
 
 export async function getTemaCamping(id) {
   return await api.get(
-    `/searchList?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=30&pageNo=1&MobileOS=ETC&MobileApp=Hello&keyword=${id}&_type=json`
+    `/searchList?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=Hello&keyword=${id}&_type=json`
   );
 }
 export async function getCampingImage(id) {

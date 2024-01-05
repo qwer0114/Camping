@@ -28,19 +28,19 @@ function App() {
               path={"icon-mountain"}
               title={"산"}
               onClickEvent={navigate}
-              navigatePath={"search/산"}
+              navigatePath={"search?tema=산"}
             ></Logo>
             <Logo
               path={"icon-sea"}
               title={"바다"}
               onClickEvent={navigate}
-              navigatePath={"search/바다"}
+              navigatePath={"search?tema=바다"}
             ></Logo>
             <Logo
               path={"icon-river"}
               title={"계곡"}
               onClickEvent={navigate}
-              navigatePath={"search/계곡"}
+              navigatePath={"search?tema=계곡"}
             ></Logo>
           </div>
           <div className="main_icon_group">
@@ -48,13 +48,13 @@ function App() {
               path={"icon-camping"}
               title={"글램핑"}
               onClickEvent={navigate}
-              navigatePath={"search/글램핑"}
+              navigatePath={"search?tema=글램핑"}
             ></Logo>
             <Logo
               path={"icon-carvan"}
               title={"카라반"}
               onClickEvent={navigate}
-              navigatePath={"search/카라반"}
+              navigatePath={"search?tema=카라반"}
             ></Logo>
             <Logo
               path={"icon-korea"}

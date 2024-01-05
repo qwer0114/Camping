@@ -1,5 +1,5 @@
 import NavBar from "../components/header/NavBar";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import CampingLists from "../components/CampingLists";
 import MoonLoader from "react-spinners/ClipLoader";
 import Modal from "../components/modal/Modal";
@@ -11,7 +11,8 @@ import DetailFilter from "../components/filter/DetailFilter";
 import filter from "../img/filter.png";
 
 function TemaCamping() {
-  const { id } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const id = searchParams.get("tema");
   const { visibility, openModal, closeModal } = useModal();
   const [checkValue, setCheckValue] = useState([]);
   const { data, isLoading } = useTemaCamping(id);
