@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 
-const checkedValues = (isChecked, fac, checkValue, setCheckValue) => {
-  // 체크 메뉴 거르는 함수
+const checkedValues = (isChecked, fac, checkedValue, setCheckedValue) => {
   if (isChecked === true) {
-    // 체크를 누르면 아이템 추가
     let arr = [];
     arr.push(fac);
-    setCheckValue([...arr, ...checkValue]);
+    setCheckedValue([...arr, ...checkedValue]);
   } else if (isChecked === false) {
-    const fitlerValues = checkValue.filter((arr) => arr !== fac); // 체크를 눌렀다 해체했을 시 기존 눌러서 추가됐던 아이템 삭제
-    setCheckValue([...fitlerValues]);
+    const filterValeus = checkedValue.filter((arr) => arr !== fac);
+    setCheckedValue([...filterValeus]);
   }
 };
 
 function CheckBoxItem({ i, fac, checkValue, setCheckValue }) {
+  const isChecked = checkValue.includes(fac);
+
   return (
     <div key={i}>
       <input
@@ -22,6 +22,7 @@ function CheckBoxItem({ i, fac, checkValue, setCheckValue }) {
         onChange={(e) => {
           checkedValues(e.target.checked, fac, checkValue, setCheckValue);
         }}
+        checked={isChecked}
       ></input>
       <label htmlFor={`fac${i}`}>{fac}</label>
     </div>

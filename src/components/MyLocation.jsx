@@ -1,7 +1,6 @@
-import { useGeolocation } from "../customHook/useGeolocation";
 import Carousel from "./Carousel";
 import { useLocationCamping } from "../customHook/api/useLocationCamping";
-import { useEffect, useState } from "react";
+
 function MyLocation({ lng, lat }) {
   const { data } = useLocationCamping(lat, lng);
 
@@ -33,7 +32,7 @@ function MyLocation({ lng, lat }) {
     <div className="myLocation">
       <div className="location_camping">
         <div> 내 주변의 캠핑장 </div>
-        <img src={require("../img/gps.png")} className="gps"></img>
+        <img src={require("../img/gps.png")} className="gps" alt="gps"></img>
       </div>
       {data ? (
         <Carousel

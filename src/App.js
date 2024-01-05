@@ -8,8 +8,16 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import TemaCamping from "./pages/TemaCamping";
 import NotFound from "./pages/NotFound";
+
 function App() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: 0,
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
 
   return (
     <QueryClientProvider client={queryClient}>

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { facility } from "../../data";
 import CheckBoxItem from "./CheckBoxItem";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
-function DetailFilter({ setCheckValue, visibility }) {
+function DetailFilter() {
   const [checkedValue, setCheckedValue] = useState([]); // 체크 리스트를 한번에 적용하기 위해 state 한번더 사용 아니면 적용 버튼 안눌러도 체크리스트 클릭 즉시 캠핑장 변경됨
+  const [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <div className="detail_filter">
@@ -13,7 +15,9 @@ function DetailFilter({ setCheckValue, visibility }) {
           <button
             className="clear"
             onClick={() => {
-              window.location.reload();
+              setCheckedValue([]);
+              searchParams.delete("theme");
+              setSearchParams(searchParams);
             }}
           >
             초기화
@@ -21,7 +25,11 @@ function DetailFilter({ setCheckValue, visibility }) {
           <button
             className="apply"
             onClick={() => {
-              setCheckValue(checkedValue);
+              setCheckedValue(checkedValue);
+              searchParams.delete("theme");
+              if (checkedValue.length !== 0)
+                searchParams.append("theme", checkedValue.toString());
+              setSearchParams(searchParams);
             }}
           >
             적용

@@ -70,4 +70,5 @@ const places = [
   "충청북도",
   "제주도",
 ];
+
 export { location, facility, places };

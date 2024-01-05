@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 
 import SearchBar from "./SearchBar";
-function NavBar({ pageTitle, navPlace }) {
+function NavBar() {
   const navigate = useNavigate();
 
   return (

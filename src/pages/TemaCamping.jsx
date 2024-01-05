@@ -14,13 +14,12 @@ function TemaCamping() {
   const [searchParams, setSearchParams] = useSearchParams();
   const id = searchParams.get("tema");
   const { visibility, openModal, closeModal } = useModal();
-  const [checkValue, setCheckValue] = useState([]);
   const { data, isLoading } = useTemaCamping(id);
 
-  useEffect(() => {
-    if (visibility) document.querySelector("body").style.overflow = "hidden";
-    else document.querySelector("body").style.overflow = "auto";
-  }, [visibility]);
+  // useEffect(() => {
+  //   if (visibility) document.querySelector("body").style.overflow = "hidden";
+  //   else document.querySelector("body").style.overflow = "auto";
+  // }, [visibility]);
 
   return (
     <>
@@ -32,36 +31,23 @@ function TemaCamping() {
           <>
             <div className="camping_lists">
               <div className="fiter_bar">
-                <DetailFilter
-                  setCheckValue={setCheckValue}
-                  visibility={visibility}
-                ></DetailFilter>
+                <DetailFilter visibility={visibility}></DetailFilter>
               </div>
               <button
                 type="button"
                 onClick={openModal}
                 className="filter_button"
               >
-                <img
-                  alt="필터 이미지"
-                  className="filter_image"
-                  src={filter}
-                ></img>
+                <img alt="필터 이미지" className="filter_image" src={filter} />
               </button>
-              <CampingLists
-                campingList={data}
-                checkValue={checkValue}
-              ></CampingLists>
+              <CampingLists campingList={data} />
             </div>
+            \
           </>
         )}
       </div>
       <Modal closeModal={closeModal} visibility={visibility}>
-        <Filter
-          checkValue={checkValue}
-          setCheckValue={setCheckValue}
-          closeModal={closeModal}
-        />
+        <Filter closeModal={closeModal} />
       </Modal>
     </>
   );

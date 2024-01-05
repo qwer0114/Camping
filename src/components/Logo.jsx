@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 function Logo({ path, title, onClickEvent, navigatePath }) {
+  const navigate = useNavigate();
   return (
     <div
       className="icon"
       onClick={() => {
-        onClickEvent(`camping/${navigatePath}`);
+        navigate(`camping/${navigatePath}`);
       }}
     >
       <img
